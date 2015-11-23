@@ -1,7 +1,7 @@
 package com.company;
 
 /**
- * Bêdzie to program, który obliczy funkcje liniow¹/kwadratow¹/szeœcienn¹.
+ * BÄ™dzie to program, ktÃ³ry obliczy funkcje liniowÄ…/kwadratowÄ…/szeÅ›ciennÄ….
  */
 
 public class Main {
