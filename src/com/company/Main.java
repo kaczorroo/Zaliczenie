@@ -81,6 +81,21 @@ public class Main {
             if(f==3){
                 System.out.println("Wybrałeś funkcję sześcienną.");
                 System.out.println("f(x) = ax3 + bx2 + cx + d");
+                int as, bs, cs, ds;
+                System.out.println("Proszę podać wartość a.");
+                Scanner ass = new Scanner(System.in);
+                as = ass.nextInt();
+                System.out.println("Proszę podać wartość b.");
+                Scanner bss = new Scanner(System.in);
+                bs = bss.nextInt();
+                System.out.println("Proszę podać wartość c.");
+                Scanner css = new Scanner(System.in);
+                cs = css.nextInt();
+                System.out.println("Proszę podać wartość d.");
+                Scanner dss = new Scanner(System.in);
+                ds = dss.nextInt();
+                dss.close();
+                
             }
     }
 }
