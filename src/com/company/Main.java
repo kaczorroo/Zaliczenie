@@ -101,9 +101,10 @@ public class Main {
                 double ulamek = (9*c*b*a-27*d*a*a-2*b*b*b+3*a*tdp)/2*a*a*a;
                 double pierwiastek1 = (1.0)/(3.0);
                 double pierwiastek2 = Math.pow(ulamek,pierwiastek1);
-                x1 = 1/3*pierwiastek2-((3*c*a-b*b)/3*a*a*pierwiastek2)-b/3*a;
-                x2 = ((-1+Math.sqrt(-3))/6)*pierwiastek2+((1+Math.sqrt(-3))/6)*((3*c*a-b*b)/(a*a*pierwiastek2))-((b/3)*a);
-                x3 = ((1+Math.sqrt(-3))/6)*pierwiastek2+((1-Math.sqrt(-3))/6)*((3*c*a-b*b)/(a*a*pierwiastek2))-((b/3)*a);
+                double pierwiastek3 = Math.sqrt(3);
+                x1 = (pierwiastek2/3)-((3*c*a-b*b)/((3*a*a)*pierwiastek2))-(b/(3*a));
+                x2 = ((-1+pierwiastek3)/6)*pierwiastek2+((1+pierwiastek3)/6)*((3*c*a-b*b)/(a*a*pierwiastek2))-(b/(3*a));
+                x3 = ((1+pierwiastek3)/6)*pierwiastek2+((1-pierwiastek3)/6)*((3*c*a-b*b)/(a*a*pierwiastek2))-(b/(3*a));
                 System.out.println(x1);
                 System.out.println(x2);
                 System.out.println(x3);
