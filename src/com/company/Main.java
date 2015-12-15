@@ -82,7 +82,7 @@ public class Main {
             if(f==3){
                 System.out.println("Wybrałeś funkcję sześcienną.");
                 System.out.println("f(x) = ax3 + bx2 + cx + d");
-                    double a, b, c, d, x1, x2, x3, delta;
+                    double a, b, c, d, x1, x2, x3, delta, tdp, ulamek, pierwiastek1, pierwiastek2, pierwiastek3;
                 System.out.println("Proszę podać wartość a.");
                     Scanner ass = new Scanner(System.in);
                     a = ass.nextInt();
@@ -96,18 +96,42 @@ public class Main {
                     Scanner dss = new Scanner(System.in);
                     d = dss.nextInt();
                 dss.close();
-                delta = -4*c*c*c*a+c*c*b*b+18*c*b*a*d-27*d*d*a*a-4*d*b*b*b;
-                double tdp = Math.sqrt(-3*delta);
-                double ulamek = (9*c*b*a-27*d*a*a-2*b*b*b+3*a*tdp)/2*a*a*a;
-                double pierwiastek1 = (1.0)/(3.0);
-                double pierwiastek2 = Math.pow(ulamek,pierwiastek1);
-                double pierwiastek3 = Math.sqrt(3);
-                x1 = (pierwiastek2/3)-((3*c*a-b*b)/((3*a*a)*pierwiastek2))-(b/(3*a));
-                x2 = ((-1+pierwiastek3)/6)*pierwiastek2+((1+pierwiastek3)/6)*((3*c*a-b*b)/(a*a*pierwiastek2))-(b/(3*a));
-                x3 = ((1+pierwiastek3)/6)*pierwiastek2+((1-pierwiastek3)/6)*((3*c*a-b*b)/(a*a*pierwiastek2))-(b/(3*a));
-                System.out.println(x1);
-                System.out.println(x2);
-                System.out.println(x3);
+                    delta = -4*c*c*c*a+c*c*b*b+18*c*b*a*d-27*d*d*a*a-4*d*b*b*b;
+                if(delta<0){
+                    tdp = Math.sqrt(-3*delta);
+                    ulamek = (9*c*b*a-27*d*a*a-2*b*b*b+3*a*tdp)/2*a*a*a;
+                    pierwiastek1 = (1.0)/(3.0);
+                    pierwiastek2 = Math.pow(ulamek, pierwiastek1);
+                    pierwiastek3 = Math.sqrt(3);
+                    x1 = (pierwiastek2/3)-((3*c*a-b*b)/((3*a*a)*pierwiastek2))-(b/(3*a));
+                    x2 = ((-1+pierwiastek3)/6)*pierwiastek2+((1+pierwiastek3)/6)*((3*c*a-b*b)/(a*a*pierwiastek2))-(b/(3*a));
+                    x3 = ((1+pierwiastek3)/6)*pierwiastek2+((1-pierwiastek3)/6)*((3*c*a-b*b)/(a*a*pierwiastek2))-(b/(3*a));
+                    System.out.println("x1="+x1);
+                    System.out.println("x2="+x2);
+                    System.out.println("x3="+x3);
+                }
+                else if(delta==0){
+                    System.out.println("delta=0");
+                    double pierwiastek10 = (1.0)/(3.0);
+                    double q=b*((2*b-9*c)/27)+d;
+                    double qp=Math.pow(q/2, pierwiastek10);
+                    double u=-qp;
+                    double x10=2*u;
+                    double x20=-u;
+                    System.out.println("x1= "+x10);
+                    System.out.println("x2= "+x20);
+                }
+                else if(delta>0){
+                    System.out.println("delta>0");
+                    double pierwiastek12 = (1.0)/(3.0);
+                    double q2=b*((2*b-9*c)/27)+d;
+                    double p=c-(b*b)/3;
+                    double pd4=q2*q2+(4*p*p*p)/27;
+                    double pu=(-q2-pd4)/2;
+                    double du=(-q2+pd4)/2;
+                    double x=(Math.pow(pu, pierwiastek12))+(Math.pow(du, pierwiastek12));
+                    System.out.println("x= "+x);
+                }
             }
         System.out.println("Koniec programu.");
     }
