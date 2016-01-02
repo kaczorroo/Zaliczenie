@@ -11,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Start programu.");
-        System.out.println("Podaj, który rodzaj funkcji chcesz obliczyć. (Poprzez wpisanie a,b lub c.)");
+        System.out.println("Podaj, który rodzaj funkcji chcesz obliczyć. (Poprzez wpisanie 1,2 lub 3.)");
         System.out.println("1)Liniowa");
         System.out.println("2)Kwadratowa");
         System.out.println("3)Sześcienna");
@@ -79,58 +79,82 @@ public class Main {
                 }
 
             }
-            if(f==3){
+            if(f==3) {
                 System.out.println("Wybrałeś funkcję sześcienną.");
                 System.out.println("f(x) = ax3 + bx2 + cx + d");
-                    double a, b, c, d, x1, x2, x3, delta, tdp, ulamek, pierwiastek1, pierwiastek2, pierwiastek3;
+                double a, b, c, d, wyznacznik,q,p,p3,pierwiastek,y;
                 System.out.println("Proszę podać wartość a.");
-                    Scanner ass = new Scanner(System.in);
-                    a = ass.nextInt();
+                Scanner ass = new Scanner(System.in);
+                a = ass.nextInt();
                 System.out.println("Proszę podać wartość b.");
-                    Scanner bss = new Scanner(System.in);
-                    b = bss.nextInt();
+                Scanner bss = new Scanner(System.in);
+                b = bss.nextInt();
                 System.out.println("Proszę podać wartość c.");
-                    Scanner css = new Scanner(System.in);
-                    c = css.nextInt();
+                Scanner css = new Scanner(System.in);
+                c = css.nextInt();
                 System.out.println("Proszę podać wartość d.");
-                    Scanner dss = new Scanner(System.in);
-                    d = dss.nextInt();
+                Scanner dss = new Scanner(System.in);
+                d = dss.nextInt();
                 dss.close();
-                    delta = -4*c*c*c*a+c*c*b*b+18*c*b*a*d-27*d*d*a*a-4*d*b*b*b;
-                if(delta<0){
-                    tdp = Math.sqrt(-3*delta);
-                    ulamek = (9*c*b*a-27*d*a*a-2*b*b*b+3*a*tdp)/2*a*a*a;
-                    pierwiastek1 = (1.0)/(3.0);
-                    pierwiastek2 = Math.pow(ulamek, pierwiastek1);
-                    pierwiastek3 = Math.sqrt(3);
-                    x1 = (pierwiastek2/3)-((3*c*a-b*b)/((3*a*a)*pierwiastek2))-(b/(3*a));
-                    x2 = ((-1+pierwiastek3)/6)*pierwiastek2+((1+pierwiastek3)/6)*((3*c*a-b*b)/(a*a*pierwiastek2))-(b/(3*a));
-                    x3 = ((1+pierwiastek3)/6)*pierwiastek2+((1-pierwiastek3)/6)*((3*c*a-b*b)/(a*a*pierwiastek2))-(b/(3*a));
-                    System.out.println("x1="+x1);
-                    System.out.println("x2="+x2);
-                    System.out.println("x3="+x3);
+                pierwiastek = Math.pow(a,1/3);
+                if(a==0){
+                    double deltakk;
+                    double deltak =b*b-4*a*c;
+                    deltakk = Math.sqrt(deltak);
+                    double x1a0 =(-b-deltakk)/2*a;
+                    double x2a0 =(-b+deltakk)/2*a;
+                    double x0a0 =-b/2*a;
+                    if(deltak>0){
+                        System.out.println("x1= "+x1a0);
+                        System.out.println("x2= "+x2a0);
+                    }
+                    else if(deltak==0){
+                        System.out.println("x0 = "+x0a0);
+                    }
+                    else if(deltak<0){
+                        System.out.println("Nie ma rozwiązania.");
+                    }
                 }
-                else if(delta==0){
-                    System.out.println("delta=0");
-                    double pierwiastek10 = (1.0)/(3.0);
-                    double q=b*((2*b-9*c)/27)+d;
-                    double qp=Math.pow(q/2, pierwiastek10);
-                    double u=-qp;
-                    double x10=2*u;
-                    double x20=-u;
-                    System.out.println("x1= "+x10);
-                    System.out.println("x2= "+x20);
-                }
-                else if(delta>0){
-                    System.out.println("delta>0");
-                    double pierwiastek12 = (1.0)/(3.0);
-                    double q2=b*((2*b-9*c)/27)+d;
-                    double p=c-(b*b)/3;
-                    double pd4=q2*q2+(4*p*p*p)/27;
-                    double pu=(-q2-pd4)/2;
-                    double du=(-q2+pd4)/2;
-                    double x=(Math.pow(pu, pierwiastek12))+(Math.pow(du, pierwiastek12));
-                    System.out.println("x= "+x);
+                else{
+                    b=b/a;
+                    c=c/a;
+                    d=d/a;
+                    q=b*(2*b*b-9*c)/27+d;
+                    p=c-b*b/3;
+                    p3=p*p*p;
+                    wyznacznik=q*q+4*p3/27;
+                    y=(-1)*b/3;
+                    if(wyznacznik>0){
+                        double pw=Math.sqrt(wyznacznik);
+                        double pierwszy=pierwiastek*(((-1)*q-pw)/2);
+                        double drugi=pierwiastek*(((-1)*q+pw)/2);
+                        double wynik=(pierwszy+drugi+y);
+                        System.out.println("delta>0");
+                        System.out.println("Rozwiązaniem równania jest: "+wynik);
+                    }
+                    else if(wyznacznik<0){
+                        double pp3=Math.abs(p/3);
+                        double u=2*Math.sqrt(pp3);
+                        double trzyp=Math.abs(27/p3);
+                        double v = Math.acos(-Math.sqrt(trzyp) * q / 2);
+                        double x1,x2,x3;
+                        x1=u*Math.cos(v/3)+y;
+                        x2=u*Math.cos((v+2*Math.PI)/3)+y;
+                        x3=u*Math.cos((v+4*Math.PI)/3)+y;
+                        System.out.println("delta<0");
+                        System.out.println("x1= "+x1);
+                        System.out.println("x2= "+x2);
+                        System.out.println("x3= "+x3);
+                    }
+                    else if(wyznacznik==0){
+                        double u=(-1)*pierwiastek*(q/2);
+                        double x1,x2;
+                        x1=(2*u)+y;
+                        x2=((-1)*u)+y;
+                        System.out.println("delta=0");
+                        System.out.println("x1= "+x1);
+                        System.out.println("x2= "+x2);
+                    }
                 }
             }
         System.out.println("Koniec programu.");
