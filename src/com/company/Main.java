@@ -54,9 +54,9 @@ public class Main {
             c = ck.nextInt();
             delta = b * b - 4 * a * c;
             deltak = Math.sqrt(delta);
-            x1 = (-b - deltak) / 2 * a;
-            x2 = (-b + deltak) / 2 * a;
-            x0 = -b / 2 * a;
+            x1 = (-b + deltak) / (2 * a);
+            x2 = (-b - deltak) / (2 * a);
+            x0 = -b / (2 * a);
             if (delta > 0) {
                 System.out.println("x1= " + x1);
                 System.out.println("x2= " + x2);
@@ -65,10 +65,9 @@ public class Main {
             } else if (delta < 0) {
                 System.out.println("Nie ma rozwiązania.");
             }
-        }
-        else {
+        } else {
             System.out.println("Błąd! Wybierz jedną z dwóch możliwych opcji.");
-                }
+        }
         System.out.println("Koniec programu.");
     }
 }
